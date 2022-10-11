@@ -1,0 +1,26 @@
+{
+    "Generate Node": {
+        "prefix": "generate node",
+        "body": [
+            "/*",
+            "@import Http from \"http\"",
+            "*/",
+            "",
+            "function main() {",
+            "   var req = Http.getJsonRequest();",
+            "   var res = { success: true };",
+            "",
+            "   try {",
+            "       // Your stuff here...",
+            "       $0",
+            "",
+            "       Http.sendJsonResponse(res);",
+            "   }",
+            "   catch (e) {",
+            "       Http.sendHttpErrorResponse(Http.HTTP_OK, e.message);",
+            "   }",
+            "}"
+        ],
+        "description": "Generates a node endpoint in the current file."
+    }
+}
