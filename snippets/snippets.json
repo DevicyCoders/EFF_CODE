@@ -1,6 +1,6 @@
 {
-    "Generate Node": {
-        "prefix": "generate node",
+    "Generate Node Endpoint": {
+        "prefix": "generate node endpoint",
         "body": [
             "/*",
             "@import Http from \"http\"",
