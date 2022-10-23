@@ -20,6 +20,12 @@
         "command": "eff-code.helloWorld",
         "title": "Hello World"
       }
+    ],
+    "snippets": [
+      {
+        "language": "javascript",
+        "path": "./snippets/snippets.json"
+      }
     ]
   },
   "scripts": {
