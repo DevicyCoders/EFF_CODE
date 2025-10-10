@@ -2,7 +2,7 @@
   "name": "eff-code",
   "displayName": "EFF_Code",
   "description": "Development tools for Efficy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "devicycoders",
   "repository": "https://github.com/DevicyCoders/EFF_CODE",
   "engines": {
@@ -13,7 +13,8 @@
     "Snippets"
   ],
   "activationEvents": [
-    "onCommand:eff-code.helloWorld"
+    "onCommand:eff-code.helloWorld",
+    "onView:eff-code-help"
   ],
   "main": "./dist/extension.js",
   "contributes": {
@@ -32,7 +33,61 @@
         "language": "javascript",
         "path": "./snippets/javascript.json"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "eff-code-sidebar",
+          "title": "Efficy Help",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "eff-code-sidebar": [
+        {
+          "id": "eff-code-help",
+          "name": "Efficy Help",
+          "type": "webview"
+        }
+      ]
+    },
+    "languages": [
+      {
+        "id": "efficy-macro",
+        "aliases": ["Efficy Macro", "efficy-macro"],
+        "filenamePatterns": ["**/efficy/macros/Macro*.txt"]
+      },
+      {
+        "id": "jscript9",
+        "aliases": ["JScript9", "jscript9", "Efficy JScript"],
+        "extensions": [".js"],
+        "filenamePatterns": ["**/efficy/serverjs/**/*.js", "**/customs/**/serverjs/**/*.js"],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "jscript9",
+        "scopeName": "source.jscript9",
+        "path": "./syntaxes/jscript9.tmLanguage.json"
+      }
+    ],
+    "configuration": {
+      "title": "JScript9",
+      "properties": {
+        "jscript9.customBasePath": {
+          "type": "string",
+          "default": "/mnt/c/inetpub/wwwroot/12.0/customs/fidal-gh/efficy/serverjs",
+          "description": "Base path for resolving custom JScript9 module imports"
+        },
+        "jscript9.enableDiagnostics": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable/disable JScript9 diagnostics"
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
